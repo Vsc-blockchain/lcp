@@ -20,3 +20,5 @@
 incubator-teaclave-sgx-sdk
 
 target/
+
+enclave/Enclave_private.pem
