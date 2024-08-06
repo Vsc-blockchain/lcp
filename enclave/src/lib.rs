@@ -3,6 +3,7 @@ extern crate alloc;
 
 use enclave_runtime::{setup_runtime, Environment, MapLightClientRegistry};
 use ethereum_elc;
+use ethereum_elc::ibc::consensus::preset::minimal::PRESET;
 
 setup_runtime!({
     simple_logger::SimpleLogger::new()
@@ -15,6 +16,6 @@ setup_runtime!({
 fn build_lc_registry() -> MapLightClientRegistry {
     let mut registry = MapLightClientRegistry::new();
     tendermint_lc::register_implementations(&mut registry);
-    ethereum_elc::register_implementations::<30,20>(&mut registry);
+       ethereum_elc::register_deneb_implementations::<{ PRESET.SYNC_COMMITTEE_SIZE }>(&mut registry);
     registry
 }
