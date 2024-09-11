@@ -91,7 +91,7 @@ Signed_RustEnclave_Name := bin/enclave.signed.so
 ######## Targets ########
 
 .PHONY: all
-all: $(App_Path) $(Signed_RustEnclave_Name)
+all: $(App_Path)
 
 .PHONY: clean
 clean:
