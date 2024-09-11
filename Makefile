@@ -131,7 +131,7 @@ GAIAD_VERSION ?= v7.0.3
 ######## Targets ########
 
 .PHONY: all
-all: $(App_Path) $(Signed_RustEnclave_Name)
+all: $(App_Path)
 
 .PHONY: clean
 clean:
