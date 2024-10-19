@@ -9,6 +9,7 @@ setup_runtime!({ Environment::new(build_lc_registry()) });
 fn build_lc_registry() -> MapLightClientRegistry {
     let mut registry = MapLightClientRegistry::new();
     tendermint_lc::register_implementations(&mut registry);
+    ethereum_elc::register_deneb_implementations::<{ PRESET.SYNC_COMMITTEE_SIZE }>(&mut registry);
     registry.seal().unwrap();
     registry
 }
